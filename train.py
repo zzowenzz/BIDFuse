@@ -232,6 +232,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Train ICIP Fuse')
     # train
     parser.add_argument("--name", type=str, required=False, help="name of the experiment.")
+    parser.add_argument("--project", type=str, default="BIDFuse", help="name of the project.")
     parser.add_argument('--dataset', type=str, default='', help='path to dataset')
     parser.add_argument('--epochs', type=int, default=120, help='number of epochs')
     parser.add_argument("--epoch_gap", type=int, default=40, help="number of epochs for the first stage")
