@@ -28,6 +28,26 @@ MSRS dataset contains total 1444 pairs of aligned infrared and visible images, w
 
 M3FD dataset contains total 4200 pairs of aligned infrared and visible images, with 2940 pairs for training and 1260 pairs for testing. The images are of size $1024 \times 769$. The label files are also provided in YOLO format.
 
+
+## Usage
+### Testing
+To test our pre-trained model, first download the model from [here](https://drive.google.com/file/d/1).
+Then, you can run the following command:
+```
+python infer.py --dataset <dataset name> --checkpoint <path to the model>
+```
+The testing results are reported below in the Experiments section.
+
+
+### Training
+To train the model, you can run the following command:
+```
+python train.py --name <experiment name> --project <project name on wandb> --dataset <dataset name> --imgsz <image size> --batch_size <batch size> --epochs <number of total epochs> --epoch_gap <number of epochs for the first training stage> --batch_size <batch size>
+```
+For more training options, you can refer to the `train.py -h` command.
+
+
+
 ## Experiments on MSRS dataset for fusion
 ![Fusion results](./figures/Table%201.png)
 
