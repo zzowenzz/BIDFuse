@@ -3,6 +3,8 @@
 [Wangzhi Xing](https://github.com/zzowenzz), [Diqi Chen](https://experts.griffith.edu.au/44378-diqi-chen), [Mohammad Aminul Islam](https://scholar.google.com.au/citations?user=I7umFP0AAAAJ&hl=en), [Jun Zhou](https://scholar.google.com.au/citations?user=6hOOxw0AAAAJ&hl=en)
 
 [Paper]
+Our code is based on CDDFuse, which is available [here](https://github.com/Zhaozixiang1228/MMIF-CDDFuse)
+
 
 ## Abstract
 Infrared-visible image fusion aims to utilize the distinct advantages of each modality to provide a more comprehensive representation than either one could offer. Current state-of-the-art methods segregate encoded features into modality-specific features and modality-independent features. However, this segregation often fails to effectively isolate feature representation from different modalities, which causes possible information loss,  rendering overly complex and ultimately unnecessary design. To tackle this issue, we propose BIDFuse, a novel two-stage bi-directional fusion network, designed to leverage the unique features from both modalities without explicit feature separation. We first use two encoders to specifically extract critical information from the two input images. Additionally, a cross-feeding mechanism is implemented to feed the features from one encoder directly into the input stream of the other decoder, enhancing the reconstruction process with information from both sources. Then, the bi-directional attention module is designed to fuse the features from both modalities and generate a fused image. Competitive experimental results demonstrate the effectiveness of our method for image fusion on the MSRS dataset and for low-light object detection on the M3FD dataset.
