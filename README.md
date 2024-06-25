@@ -28,5 +28,11 @@ MSRS dataset contains total 1444 pairs of aligned infrared and visible images, w
 
 M3FD dataset contains total 4200 pairs of aligned infrared and visible images, with 2940 pairs for training and 1260 pairs for testing. The images are of size $1024 \times 769$. The label files are also provided in YOLO format.
 
+## Experiments on MSRS dataset for fusion
+![Fusion results](./figures/Table%201.png)
 
+## Experiments on M3FD dataset for object detection
+![Object detection results](./figures/Table%202.png)
 
+## Visualization of fusion results
+![Fusion visualization](./figures/vis_comparison_v2.pdf)

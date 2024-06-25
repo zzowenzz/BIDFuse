@@ -11,7 +11,7 @@ import random
 import wandb
 import kornia
 
-from utils.dataset import FusionDataset
+from utils.dataset import FusionTrainDataset
 from utils.net import Restormer_Encoder, Restormer_Decoder, MultiHeadSelfAttention, BidirAttention
 from utils.loss import Fusionloss, cc 
 
@@ -50,7 +50,7 @@ def main(args):
 
     # dataset
     dataset_path = args.dataset
-    dataset = FusionDataset(dataset_path)
+    dataset = FusionTrainDataset(dataset_path,imgsz=args.imgsz)
     train_loader = DataLoader(dataset,
                              batch_size=args.batch_size,
                              num_workers=4) 
@@ -65,7 +65,7 @@ def main(args):
     logging.info("Created model.")
 
     # resume training
-    staring_epoch = 0
+    staring_epoch = 1
     def remove_module_prefix(state_dict):
         return {k[len("module."):]: v for k, v in state_dict.items() if k.startswith("module.")}
     if args.resume:
@@ -110,7 +110,7 @@ def main(args):
     logging.info("Created lr schedulers.")
 
     logging.info("Start training ...")
-    for epoch in range(staring_epoch, args.epochs):
+    for epoch in range(staring_epoch, args.epochs+1):
         acc_loss_V, acc_loss_I, acc_loss_Gradient ,acc_loss_F, acc_loss_total = 0.0, 0.0, 0.0, 0.0, 0.0
         for i, (img_name, data_IR, data_VIS) in enumerate(train_loader):
             data_VIS, data_IR = data_VIS.to(device), data_IR.to(device)
@@ -217,7 +217,7 @@ def main(args):
             wandb.log({"Epoch":epoch, "loss_v": round(acc_loss_V,4), "loss_i": round(acc_loss_I,4), "loss_gradient": round(acc_loss_Gradient,4), "loss_f": round(acc_loss_F,4), "loss_total": round(acc_loss_total,4)})     
 
         # model saving
-        if (epoch+1) % args.save_freq == 0:
+        if epoch % args.save_freq == 0:
             checkpoint = {
                 "Epoch": epoch,
                 "IR_Encoder": IR_Encoder.state_dict(),
@@ -227,6 +227,7 @@ def main(args):
                 "BDA": BDA.state_dict(),
             }
             torch.save(checkpoint, f"./log/{args.name}/checkpoint_{epoch}.pth")
+            logging.info(f"Model saved at epoch {epoch}")
                 
 if __name__ == '__main__':  
     parser = argparse.ArgumentParser(description='Train ICIP Fuse')
@@ -234,6 +235,7 @@ if __name__ == '__main__':
     parser.add_argument("--name", type=str, required=False, help="name of the experiment.")
     parser.add_argument("--project", type=str, default="BIDFuse", help="name of the project.")
     parser.add_argument('--dataset', type=str, default='', help='path to dataset')
+    parser.add_argument("--imgsz", type=int, default=224, help="size of the image")
     parser.add_argument('--epochs', type=int, default=120, help='number of epochs')
     parser.add_argument("--epoch_gap", type=int, default=40, help="number of epochs for the first stage")
     parser.add_argument('--batch_size', type=int, default=1, help='batch size')
