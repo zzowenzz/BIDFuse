@@ -1,6 +1,6 @@
 # BIDFuse: Harnessing Bi-Directional Attention with Modality-Specific Encoders for Infrared-Visible Image Fusion (ICIP 2024)
 
-Wangzhi Xing, Diqi Chen, Mohammad Aminul Islam, Jun Zhou
+[Wangzhi Xing](https://github.com/zzowenzz), [Diqi Chen](https://experts.griffith.edu.au/44378-diqi-chen), [Mohammad Aminul Islam](https://scholar.google.com.au/citations?user=I7umFP0AAAAJ&hl=en), [Jun Zhou](https://scholar.google.com.au/citations?user=6hOOxw0AAAAJ&hl=en)
 
 [Paper]
 
