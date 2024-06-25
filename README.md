@@ -35,4 +35,5 @@ M3FD dataset contains total 4200 pairs of aligned infrared and visible images, w
 ![Object detection results](./figures/Table%202.png)
 
 ## Visualization of fusion results
-![Fusion visualization](./figures/vis_comparison_v2.pdf)
+![Fusion visualization](./figures/vis_comparison_v2.jpg)
+
