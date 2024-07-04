@@ -230,7 +230,7 @@ def main(args):
             logging.info(f"Model saved at epoch {epoch}")
                 
 if __name__ == '__main__':  
-    parser = argparse.ArgumentParser(description='Train ICIP Fuse')
+    parser = argparse.ArgumentParser(description='Train BIDFuse Fuse')
     # train
     parser.add_argument("--name", type=str, required=False, help="name of the experiment.")
     parser.add_argument("--project", type=str, default="BIDFuse", help="name of the project.")
