@@ -18,7 +18,7 @@ conda create -n bidfuse python=3.10
 # activate the environment
 conda activate bidfuse
 # install pytorch and torchvision from pytorch and nvidia channels
-conda install pytorch torchvision pytorch-cuda=12.1 -c pytorch -c nvidia
+ 
 # install other dependencies
 pip install -r requirements.txt
 ```
@@ -33,7 +33,7 @@ M3FD dataset contains total 4200 pairs of aligned infrared and visible images, w
 
 ## Usage
 ### Testing
-To test our pre-trained model, first download the model from [here](https://drive.google.com/file/d/1).
+To test our pre-trained model, first download the model from [here](https://drive.google.com/file/d/1xdwbPAQ-mzvp8vH0ZBeY-9nxL7Cu2rgb/view?usp=sharing).
 Then, you can run the following command:
 ```
 python infer.py --dataset <dataset name> --checkpoint <path to the model>
@@ -58,4 +58,5 @@ For more training options, you can refer to the `train.py -h` command.
 
 ## Visualization of fusion results
 ![Fusion visualization](./figures/vis_comparison_v2.jpg)
+
 
